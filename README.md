@@ -1,12 +1,10 @@
-# injector [![build status](https://secure.travis-ci.org/themasch/node-injector.png)](http://travis-ci.org/themasch/node-injector) [![NPM version](https://badge.fury.io/js/injector.png)](https://npmjs.org/package/injector)
+# injector [![build status](https://secure.travis-ci.org/themasch/node-injector.png)](http://travis-ci.org/themasch/node-injector)
 
 Another approach of IoC/Dependency Injection for JavaScript
 
 ## Install with [npm](http://npmjs.org)
 
-```
-npm install injector
-```
+currently not in npm (need a name, meh)
 
 ## Why?
 

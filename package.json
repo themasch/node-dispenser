@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "injector",
   "version": "0.1.0",
   "description": "yet another dependency injection container",
