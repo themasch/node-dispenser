@@ -1,0 +1,29 @@
+{
+  "name": "injector",
+  "version": "0.1.0",
+  "description": "yet another dependency injection container",
+  "keywords": [
+    "IoC",
+    "dependency injection",
+    "service",
+    "container"
+  ],
+  "dependencies": {
+    "debug": "",
+    "async": "~0.2.9"
+  },
+  "author": "Mark Schmale <masch@masch.it>",
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/themasch/node-injector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/themasch/node-injector/issues"
+  }
+}
