@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "injector",
+  "name": "dispenser",
   "version": "0.1.0",
   "description": "yet another dependency injection container",
   "keywords": [
@@ -22,9 +22,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/themasch/node-injector.git"
+    "url": "git://github.com/themasch/node-dispenser.git"
   },
   "bugs": {
-    "url": "https://github.com/themasch/node-injector/issues"
+    "url": "https://github.com/themasch/node-dispenser/issues"
   }
 }

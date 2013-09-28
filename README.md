@@ -1,4 +1,4 @@
-# injector [![build status](https://secure.travis-ci.org/themasch/node-injector.png)](http://travis-ci.org/themasch/node-injector)
+# dispenser [![build status](https://secure.travis-ci.org/themasch/node-dispenser.png)](http://travis-ci.org/themasch/node-dispenser)
 
 Another approach of IoC/Dependency Injection for JavaScript
 
@@ -12,7 +12,7 @@ Because I like the idea of IoC and I like JavaScript.
 
 ## Design and Ideas
 
-Injector does not use magical getters or setters but offers some simple(?) functions to
+Dispenser does not use magical getters or setters but offers some simple(?) functions to
 register and retrieve services. Services can be configured using plain values or
 by defining a factory which may consume other services.
 
@@ -23,19 +23,19 @@ cached and this cache will be used for furter requests.
 ## Usage
 
 ```javascript
-var injector = require( 'injector' )
+var dispenser = require( 'dispenser' )
 ```
 
 ### register a service
 
 ```javascript
-injector.register('the_answer', 42)
+dispenser.register('the_answer', 42)
 ```
 
 ### register a service via a factory
 
 ```javascript
-injector.factory('give_answer', ['the_answer'], function(a) {
+dispenser.factory('give_answer', ['the_answer'], function(a) {
     return 'The answer to life the universe and everything is ' + a;
 })
 ```
@@ -43,7 +43,7 @@ injector.factory('give_answer', ['the_answer'], function(a) {
 or use the short form
 
 ```javascript
-injector.factory('give_answer', function(the_answer) {
+dispenser.factory('give_answer', function(the_answer) {
     return 'The answer to life the universe and everything is ' + the_answer;
 })
 ```
@@ -51,7 +51,7 @@ injector.factory('give_answer', function(the_answer) {
 ### retrieve a service
 
 ```javascript
-injector.inject(['give_answer'], function(txt) {
+dispenser.inject(['give_answer'], function(txt) {
     console.log(txt)
 })
 ```
@@ -59,7 +59,7 @@ injector.inject(['give_answer'], function(txt) {
 or use the short form
 
 ```javascript
-injector.inject(function(give_answer) {
+dispenser.inject(function(give_answer) {
     console.log(give_answer)
 })
 ```
@@ -67,9 +67,9 @@ injector.inject(function(give_answer) {
 ### this works the same way for more complex data:
 
 ```javascript
-injector.register('$config', require('./config'))
+dispenser.register('$config', require('./config'))
 
-injector.factory('$dbm', function($config) {
+dispenser.factory('$dbm', function($config) {
     return DatabaseDriver.connect($config.db.uri)
 })
 
@@ -79,25 +79,25 @@ function UserController($config, $dbm) {
     }
 }
 
-injector.factory('UsrCtrl', UserController)
+dispenser.factory('UsrCtrl', UserController)
 ```
 
 ## API
 
-Thats what I'd call the "public API" of injector. It exposes some more functions but they aren't made for public use.
+Thats what I'd call the "public API" of dispenser. It exposes some more functions but they aren't made for public use.
 
-### injector.register(*name*, *value*)
+### dispenser.register(*name*, *value*)
  - `name` the services name
  - `value` the value you want to store as a service
 
-### injector.factory(*name*[, *parameters*], *factory*[, *async*])
+### dispenser.factory(*name*[, *parameters*], *factory*[, *async*])
  - `name` the services name
- - `parameters` (*optional*) Array of service names to use as arguments for the factoy. If omited injector tries to parse these names from the factory source.
+ - `parameters` (*optional*) Array of service names to use as arguments for the factoy. If omited dispenser tries to parse these names from the factory source.
  - `factory` the factory function itself.
  - `async` (*optional*) defines if the factory function is asynchronus. Defaults to false, if true, the last parameter given to factory will be a callback(err, service)
 
-### injector.inject([*parameters* ,] *function*)
-  - `parameters` (*optional*) Array of service names to use as arguments for the function. If omited injector tries to parse these names from the functions source.
+### dispenser.inject([*parameters* ,] *function*)
+  - `parameters` (*optional*) Array of service names to use as arguments for the function. If omited dispenser tries to parse these names from the functions source.
   - `function` the funciton that should be called with the services as arguments.
 
 
