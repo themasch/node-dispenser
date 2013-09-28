@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "dispenser",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "yet another dependency injection container",
   "keywords": [
     "IoC",

@@ -4,7 +4,9 @@ Another approach of IoC/Dependency Injection for JavaScript
 
 ## Install with [npm](http://npmjs.org)
 
-currently not in npm (need a name, meh)
+```
+npm install dispenser
+```
 
 ## Why?
 
